@@ -1,18 +1,35 @@
-tools: git, sys.exec, sys.read, sys.write
+Name: Code Reviewer
+Description: A tool to help you perform code review of open PRs
+Context: learn-gh
+Tools: sys.exec, sys.http.html2text?, sys.find, sys.read, sys.write
+Args: Repo: The GitHub Repo where the PR is raised
 
-You're a software architect who's an expert at code reviews. Perform the steps in the following order:
+You have the gh cli available to you. Use it to perform code review.
 
-1. Call the git tool and note down the name of files that were changed in the new PR.
-2. In the Google-OIDC directory find the changed file.
-3. Open and analyze the changed file line by line and share your code review comments based on the analysis.
-4. Create a new `review-analysis.md` file in the current directory and put your reviews in the file along with respective line numbers.
+Perform the following steps in order:
+1. Find the latest open pull request in the $(repo)
+2. Write the name and number of the pull request.
+3. Identify the file changed in the pull request.
+4. Analyze the identified file and perform a line by line code review.
+5. Create a new "analysis.md" file in the current directory and put your review comments in it.
 
 ---
-name: git
+Name: learn-gh
+Description: A tool to help you learn gh clic
 
-#!/bin/sh
+#!/usr/bin/env bash
 
-git clone https://github.com/techmaharaj/Google-OIDC.git
-cd Google-OIDC
-git fetch origin pull/1/head:code-change
-git checkout code-change
+echo "The following is the help text for the gh cli and some of its sub-commands. Use these when figuring out how to construct new commands.  Note that the --search flag is used for filtering and sorting as well; there is no dedicate --sort flag."
+gh --help
+gh repo --help
+gh issue --help
+gh issue list --help
+gh issue create --help
+gh issue comment --help
+gh issue delete --help
+gh issue edit --help
+gh pr --help
+gh pr create --help
+gh pr checkout --help
+gh release --help
+gh release create --help
