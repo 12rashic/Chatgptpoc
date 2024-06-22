@@ -1,0 +1,2 @@
+GPTscript is a new scripting language designed to make programming tasks simpler, more intuitive, and accessible. 
+By leveraging the power of natural language processing, GPTscript allows users to write scripts that feel more like conversational English than traditional code.
